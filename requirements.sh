@@ -1,1 +1,0 @@
-sudo apt install kbd gbdfed bdf2psf
