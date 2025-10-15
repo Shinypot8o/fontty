@@ -34,9 +34,9 @@ with open("unicode.map", "r") as f:
 # 			f.write(f"U+{c:04X}\n")
 
 if input("recompile font? (Y/n) ").lower() != "n":
-	os.system(f"sudo bdf2psf --fb {bdf_file} /dev/null unicode.map 512 {bdf_file[:-4]}.psf")
+	os.system(f"bdf2psf --fb {bdf_file} /dev/null unicode.map 512 {bdf_file[:-4]}.psf")
 if input("install font? (Y/n) ").lower() != "n":
-	os.system(f"sudo setfont {bdf_file[:-4]}.psf")
+	os.system(f"setfont {bdf_file[:-4]}.psf")
 
 for c in range(0x10000):
 	if c in in_font:
@@ -46,4 +46,4 @@ print()
 
 
 if input("\nrevert font? (y/N) ").lower() == "y":
-	os.system("sudo setfont /usr/share/consolefonts/Lat2-Terminus16.psf.gz")
+	os.system("setfont /usr/share/consolefonts/Lat2-Terminus16.psf.gz")
